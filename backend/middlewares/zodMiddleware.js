@@ -1,5 +1,3 @@
-import { z } from 'zod';
-
 // Middleware function to validate request body with Zod schema
 export const zodValidate = (schema) => (req, res, next) => {
   try {
@@ -9,7 +7,7 @@ export const zodValidate = (schema) => (req, res, next) => {
   } catch (error) {
     // If validation fails, return a 400 response with error details
     const errors = error.errors.map((err) => ({
-      path: err.path.join('.'), // Path of the invalid field
+      path: err.path.join("."), // Path of the invalid field
       message: err.message, // Validation message
     }));
 
